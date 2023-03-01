@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-full h-screen bg-white overflow-hidden">
+
+        <!-- logo & Humburger  -->
+        <div class="navbar">
+            <div class="site-logo">&lt;Codes/&gt;</div>
+            <div class="menu-toggle">
+                <div id="menu-toggle-btn">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header  -->
+        <div
+            class="absolute w-full top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%] text-8xl uppercase font-normal text-center">
+            We Transform <br> Ideas into Digital<br> Outcomes.
+        </div>
+
+        <div class="nav-container fixed top-0 w-full h-screen bg-black text-white flex justify-center items-center">
+
+
+            <div class="flex w-6/12 justify-between">
+                <div class="d-flex flex flex-col justify-between items-start">
+                    <div class="font-light mt-[-0.2em] uppercase text-9xl">C/</div>
+                    <div class="flex flex-col">
+                        <a class="font-normal text-xs" href="">Behance</a>
+                        <a class="font-normal text-xs" href="">Facebook</a>
+                        <a class="font-normal text-xs" href="">Instagram</a>
+                        <a class="font-normal text-xs" href="">Github</a>
+                        <a class="font-normal text-xs" href="">Youtube</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="nav-link py-2 relative">
+                        <a class="relative top-[60px] text-5xl font-light hover:before:content-['<'] hover:after:content-['/>'] hover:text-slate-400" href="">About Us</a>
+                        <div class="nav-item-wrapper"></div>
+                    </div>
+
+                    <div class="nav-link py-2 relative">
+                        <a class="relative top-[60px] text-5xl font-light hover:before:content-['<'] hover:after:content-['/>'] hover:text-slate-400" href="">Services</a>
+                        <div class="nav-item-wrapper"></div>
+                    </div>
+
+                    <div class="nav-link py-2 relative">
+                        <a class="relative top-[60px] text-5xl font-light hover:before:content-['<'] hover:after:content-['/>'] hover:text-slate-400" href="">Projects</a>
+                        <div class="nav-item-wrapper"></div>
+                    </div>
+
+                    <div class="nav-link py-2 relative">
+                        <a class="relative top-[60px] text-5xl font-light hover:before:content-['<'] hover:after:content-['/>'] hover:text-slate-400" href="">Clients</a>
+                        <div class="nav-item-wrapper"></div>
+                    </div>
+
+                    <div class="nav-link py-2 relative">
+                        <a class="relative top-[60px] text-5xl font-light hover:before:content-['<'] hover:after:content-['/>'] hover:text-slate-400" href="">Contact</a>
+                        <div class="nav-item-wrapper"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Nav Footer  -->
+            <div class="nav-footer absolute w-full bottom-0 py-[2em] px-[1em] flex justify-between">
+                <div>
+                    <a class="py-0 px-[1em]" href="#">Privacy Policy</a>
+                    <a class="py-0 px-[1em]" href="#">Cookie Policy</a>
+                    <a class="py-0 px-[1em]" href="#">Terms & Conditions</a>
+                </div>
+
+                <div>
+                    <a class="py-0 px-[1em]" href="#">codesltd@gmail.com</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            const t1 = gsap.timeline({ paused: true });
+    
+    
+            const animateOpenNav = () => {
+                t1.to(".nav-container", 0.2, {
+                    autoAlpha: 1,
+                    delay: 0.1
+                });
+    
+                t1.to(".site-logo", 0.2, { color: '#fff' }, "-=0.1")
+            }
+    
+            const openNav = () => {
+                animateOpenNav();
+                const navBtn = document.getElementById('menu-toggle-btn')
+                navBtn.onclick = function (e) {
+                    navBtn.classList.toggle("active")
+                    t1.reversed(!t1.reversed())
+                }
+            }
+    
+            openNav();
+    
+            
+    
+            t1.from(".d-flex > div", 0.4, {
+                opacity: 0,
+                y: 10,
+                stagger: {
+                    amount: 0.04
+                }
+            });
+    
+            t1.to(".nav-link > a", 0.8, {
+                top: 0,
+                ease: 'power2.inOut',
+                stagger: { amount: 0.1 }
+            }, "-=0.4")
+    
+            t1.from(".nav-footer", 0.3, { opacity: 0 }, "-=0.5").reverse();
+    
+        </script>
+    </div>
+</body>
+
+</html>
